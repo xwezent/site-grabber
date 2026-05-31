@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="tabs">
+      <button data-tab="download" class="active">Download</button>
+      <button data-tab="console">Console</button>
+      <button data-tab="sources">Sources</button>
+    </div>
+
+    <div class="panel" id="p-download">
+      <div class="row">
+        <button id="btn-download" class="primary">Скачать всё (ZIP)</button>
+        <span class="hint" id="dl-hint"></span>
+      </div>
+      <div class="opts">
+        <label><input type="checkbox" id="opt-img" checked /> images</label>
+        <label><input type="checkbox" id="opt-media" checked /> media</label>
+        <label><input type="checkbox" id="opt-fonts" checked /> fonts</label>
+        <label><input type="checkbox" id="opt-xhr" checked /> xhr/fetch</label>
+        <label><input type="checkbox" id="opt-html" checked /> rendered DOM</label>
+        <label><input type="checkbox" id="opt-css" checked /> css</label>
+        <label><input type="checkbox" id="opt-js" checked /> js</label>
+      </div>
+      <div id="dl-log" class="log"></div>
+    </div>
+
+    <div class="panel hidden" id="p-console">
+      <div id="console-output" class="output"></div>
+      <textarea
+        id="console-input"
+        placeholder="код. Ctrl+Enter — запуск. Ctrl+↑/↓ — история"
+        spellcheck="false"
+      ></textarea>
+      <div class="row">
+        <button id="btn-run" class="primary">Run</button>
+        <button id="btn-clear">Clear</button>
+        <span class="hint">stealth · MAIN world · no devtools</span>
+      </div>
+    </div>
+
+    <div class="panel hidden" id="p-sources">
+      <div class="row">
+        <input id="src-filter" placeholder="фильтр: js, css, .map, eval, fetch..." />
+        <button id="btn-refresh">↻</button>
+        <button id="btn-export-list">→ .txt</button>
+      </div>
+      <div class="row">
+        <label class="opts"
+          ><input type="checkbox" id="src-net" checked /> network</label
+        >
+        <label class="opts"
+          ><input type="checkbox" id="src-hk" checked /> runtime/hidden</label
+        >
+        <span class="hint" id="src-stat"></span>
+      </div>
+      <div id="src-list" class="list"></div>
+    </div>
+
+    <script src="zip.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

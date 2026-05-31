@@ -1,0 +1,203 @@
+:root {
+  --bg: #0d1117;
+  --fg: #e6edf3;
+  --mute: #7d8590;
+  --acc: #58a6ff;
+  --ok: #3fb950;
+  --err: #f85149;
+  --warn: #d29922;
+  --bd: #30363d;
+  --card: #161b22;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 600px;
+  height: 640px;
+  font: 13px ui-monospace, Consolas, "Cascadia Mono", monospace;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+}
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--bd);
+  background: var(--card);
+}
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: 0;
+  color: var(--mute);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font: inherit;
+}
+.tabs button.active {
+  color: var(--fg);
+  border-bottom-color: var(--acc);
+}
+.tabs button:hover {
+  color: var(--fg);
+}
+.panel {
+  flex: 1;
+  padding: 10px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+.panel.hidden {
+  display: none;
+}
+button {
+  background: #21262d;
+  color: var(--fg);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font: inherit;
+}
+button:hover {
+  background: #30363d;
+}
+button.primary {
+  background: var(--acc);
+  color: #0d1117;
+  border-color: var(--acc);
+  font-weight: 600;
+}
+button.primary:hover {
+  background: #79b8ff;
+}
+input,
+textarea {
+  background: #0d1117;
+  color: var(--fg);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font: inherit;
+  outline: none;
+}
+input:focus,
+textarea:focus {
+  border-color: var(--acc);
+}
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--mute);
+}
+.opts label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.row input[type="text"],
+.row input:not([type]),
+#src-filter {
+  flex: 1;
+}
+.log {
+  flex: 1;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 11px;
+  overflow: auto;
+  white-space: pre-wrap;
+  min-height: 200px;
+}
+.output {
+  flex: 1;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 8px;
+  overflow: auto;
+  font-size: 12px;
+  white-space: pre-wrap;
+  min-height: 240px;
+}
+.output .out {
+  color: var(--fg);
+}
+.output .res {
+  color: var(--ok);
+  white-space: pre-wrap;
+}
+.output .err {
+  color: var(--err);
+}
+.output .cmd {
+  color: var(--acc);
+  border-top: 1px solid var(--bd);
+  margin-top: 6px;
+  padding-top: 6px;
+}
+.output > div {
+  margin-bottom: 2px;
+}
+#console-input {
+  height: 100px;
+  font-size: 12px;
+  resize: vertical;
+}
+.list {
+  flex: 1;
+  overflow: auto;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  min-height: 320px;
+}
+.item {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--bd);
+  font-size: 11px;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  align-items: baseline;
+}
+.item:hover {
+  background: #21262d;
+}
+.item .t {
+  color: var(--mute);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+.item .u {
+  flex: 1;
+  word-break: break-all;
+}
+.item.hk .t {
+  color: var(--warn);
+}
+.item.net .t {
+  color: var(--acc);
+}
+.hint {
+  color: var(--mute);
+  font-size: 11px;
+  margin-left: auto;
+}
